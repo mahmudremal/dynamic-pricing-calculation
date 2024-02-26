@@ -18,12 +18,12 @@ This plugin specially created for [Dubido](https://dubido.co.il/), a customized 
   * One click Import feature.
   * One click Export feature.
 
-![Products](/templates/screenshot/dolls-preview.jpg)
+<!-- ![Products](/templates/screenshot/dolls-preview.jpg)
 ![Pops](/templates/screenshot/customization-screen.png)
 ![Hearts](/templates/screenshot/select-hearts.jpg)
 ![Outfits](/templates/screenshot/select-outfits.jpg)
 ![Recorder](/templates/screenshot/voice-addons.jpg)
-![Confirm](/templates/screenshot/confirmation.jpg)
+![Confirm](/templates/screenshot/confirmation.jpg) -->
 
 #### Hi, I'm Remal Mahmud, currently working on something freelance projects 😉
 ### Connect with me:
