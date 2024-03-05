@@ -1,8 +1,8 @@
 <?php
 /**
- * Block Patterns
+ * Update Plugin form Github
  *
- * @package TeddyBearCustomizeAddon
+ * @package DynamicPricingCalculation
  */
 
 namespace DPC\inc;

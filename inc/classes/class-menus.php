@@ -1,8 +1,8 @@
 <?php
 /**
- * Register Menus
+ * Otion pages setting fields
  *
- * @package ESignBindingAddons
+ * @package DynamicPricingCalculation
  */
 namespace DPC\inc;
 use DPC\inc\Traits\Singleton;

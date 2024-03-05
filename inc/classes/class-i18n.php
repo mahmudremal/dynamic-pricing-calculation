@@ -1,8 +1,8 @@
 <?php
 /**
- * Blocks
+ * Load & Register i18n
  *
- * @package TeddyBearCustomizeAddon
+ * @package DynamicPricingCalculation
  */
 namespace DPC\inc;
 use DPC\inc\Traits\Singleton;
@@ -17,21 +17,21 @@ class I18n {
 		add_action('init', [$this, 'load_plugin_translations'], 1, 0);
 		add_action('plugins_loaded', [$this, 'load_plugin_textdomain'], 1, 0);
 
-		add_action('wp_ajax_nopriv_futurewordpress/project/ajax/i18n/js', [$this, 'js_translates'], 10, 0);
-		add_action('wp_ajax_futurewordpress/project/ajax/i18n/js', [$this, 'js_translates'], 10, 0);
+		add_action('wp_ajax_nopriv_dpc/ajax/i18n/js', [$this, 'js_translates'], 10, 0);
+		add_action('wp_ajax_dpc/ajax/i18n/js', [$this, 'js_translates'], 10, 0);
 
-		add_action('wp_ajax_nopriv_futurewordpress/project/ajax/i18n/number', [$this, 'number_translates'], 10, 0);
-		add_action('wp_ajax_futurewordpress/project/ajax/i18n/number', [$this, 'number_translates'], 10, 0);
+		add_action('wp_ajax_nopriv_dpc/ajax/i18n/number', [$this, 'number_translates'], 10, 0);
+		add_action('wp_ajax_dpc/ajax/i18n/number', [$this, 'number_translates'], 10, 0);
 		
 		add_filter('dpc/project/system/translate/string', [$this, 'translate_string'], 10, 4);
 		add_filter('dpc/project/system/translate/number', [$this, 'translate_number'], 10, 4);
 		add_filter('dpc/project/system/get_locale', [$this, 'get_locale'], 10, 1);
 		
-		add_action('wp_ajax_nopriv_futurewordpress/project/ajax/i18n/list', [$this, 'ajaxList'], 10, 0);
-		add_action('wp_ajax_futurewordpress/project/ajax/i18n/list', [$this, 'ajaxList'], 10, 0);
+		add_action('wp_ajax_nopriv_dpc/ajax/i18n/list', [$this, 'ajaxList'], 10, 0);
+		add_action('wp_ajax_dpc/ajax/i18n/list', [$this, 'ajaxList'], 10, 0);
 
-		add_action('wp_ajax_nopriv_futurewordpress/project/ajax/i18n/update', [$this, 'updateList'], 10, 0);
-		add_action('wp_ajax_futurewordpress/project/ajax/i18n/update', [$this, 'updateList'], 10, 0);
+		add_action('wp_ajax_nopriv_dpc/ajax/i18n/update', [$this, 'updateList'], 10, 0);
+		add_action('wp_ajax_dpc/ajax/i18n/update', [$this, 'updateList'], 10, 0);
 
 		// add_action( 'elementor/widget/render_content', [$this, 'elementor_widget_render_content'], 10, 2);
 	}
@@ -306,6 +306,5 @@ class I18n {
 			return false; // The string contains non-English characters
 		}
 	}
-	
 
 }

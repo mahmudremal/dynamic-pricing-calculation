@@ -1,28 +1,21 @@
 # Dynamic Pricing Calculation Plugin
-This plugin specially created for [Dubido](https://dubido.co.il/), a customized teddy-bear provider company. Please find the features below.
+This plugin has been created to show dynamic pricing with tax calculation for metal supplier [company](https://metalimex.nl). Admin could Update the pricing table and then visitors and check prices according to their Units.
 
-* Apearance generating
-   * For each product individually.
-   * An option defining Globally.
-* Certificate Generating
-   * Generate & verify certificate.
-   * Autometically & manually sending certificate email.
-* Voice recording
-  * Record & upload voice with order.
-  * Possibility to send recorded file later.
-* In-build Pricing
-  * Pricing Genearted dynamically.
-  * Possibility to escape pricing.
+Features
 * Administrative facility
-  * Orginal Audio decoded file downloadable.
-  * One click Import feature.
-  * One click Export feature.
+  * Setup Pricing
+  * Setup Taxes
+  * Update table
+  * Unlimited list
+  * Unlimited tables
+* Clients facility
+  * Easy to Use
+  * Trace Price increase & decrease
+  * Auto store data
+  * Get a total overview
 
+  
 <!-- ![Products](/templates/screenshot/dolls-preview.jpg)
-![Pops](/templates/screenshot/customization-screen.png)
-![Hearts](/templates/screenshot/select-hearts.jpg)
-![Outfits](/templates/screenshot/select-outfits.jpg)
-![Recorder](/templates/screenshot/voice-addons.jpg)
 ![Confirm](/templates/screenshot/confirmation.jpg) -->
 
 #### Hi, I'm Remal Mahmud, currently working on something freelance projects 😉

@@ -3,7 +3,7 @@
  * Option Page Render.
  * https://github.com/jeremyHixon/RationalOptionPages
  * 
- * @package ESignBindingAddons
+ * @package DynamicPricingCalculation
  */
 namespace DPC\inc;
 use DPC\inc\Traits\Singleton;
