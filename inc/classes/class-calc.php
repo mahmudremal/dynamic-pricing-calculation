@@ -28,5 +28,27 @@ class Calc {
         }
         return $units;
     }
+    public function get_currencies($unit = false) {
+        $currencies = [
+            'eur'   => __('Euro', 'dpc'),
+            'usd'   => __('USD', 'dpc'),
+            'gbp'   => __('GBP', 'dpc'),
+        ];
+        if ($unit && !empty($unit)) {
+            return isset($currencies[$unit])?$currencies[$unit]:false;
+        }
+        return $currencies;
+    }
+    public function get_currency_sign($unit = false) {
+        $currencies = [
+            'eur'   => '€',
+            'usd'   => '$',
+            'gbp'   => '£',
+        ];
+        if ($unit && !empty($unit)) {
+            return isset($currencies[$unit])?$currencies[$unit]:false;
+        }
+        return $currencies;
+    }
 
 }

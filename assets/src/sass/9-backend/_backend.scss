@@ -1,0 +1,45 @@
+.dpc {
+    &__table {
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+    &__th {
+        &:not(:first-child) {
+            text-align: center;
+        }
+    }
+    &__th, &__td {
+        padding: 5px;
+        border: 1px solid #ddd;
+    }
+    &__td {
+        & > * {
+            width: 100%;
+        }
+        &:not(:first-child) {
+            width: 150px;
+            max-width: 20%;
+            font-size: 16px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        &[data-column="trash"] {
+            width: 100px;
+            max-width: 10%;
+        }
+    }
+    &__trash {
+        cursor: pointer;
+    }
+    &__tfoot {
+        &__repeater {
+            margin: 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid #ddd;
+            text-transform: uppercase;
+        }
+    }
+}

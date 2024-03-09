@@ -36,8 +36,10 @@ import tippy from 'tippy.js';
 		setup_hooks() {
 			const thisClass = this;
 			window.thisClass = this;
+
+			this.local_store_n_calc();
 		}
-		local_store() {
+		local_store_n_calc() {
 			document.querySelectorAll('.dpc__table:not([data-handled])').forEach(table => {
 				table.dataset.handled = true;
 				const tableID = table.dataset?.tableId;
@@ -52,16 +54,36 @@ import tippy from 'tippy.js';
 							const InputRow = quantityRow.find(row => row?.index && row.index == input.dataset.index);
 							if (InputRow && InputRow?.qty && InputRow.qty != '') {
 								input.value = InputRow.qty;
+								// Calculation
+								const calculations = (
+									input.value * parseFloat(input.dataset.price)
+								);
+								// Priting output
+								document.querySelectorAll(`.dpc__cost[data-index="${input.dataset.index}"]`).forEach(elem => elem.innerHTML = calculations.toFixed(2));
 							}
 						}
 						
 						// Updating Events
-						input.addEventListener('change', (event) => {
-							const toStore = [...quantityInputs].map(elem => {return {name: elem.name, index: elem.dataset.index, qty: elem.value};});
-							if (toStore) {
-								window.localStorage.setItem("dpc-" + tableID, JSON.stringify(toStore));
-							}
-						})
+						['input', 'change'].forEach(hook => {
+							input.addEventListener(hook, (event) => {
+								// Calculation functions
+								const calculations = (
+									event.target.value * parseFloat(input.dataset.price)
+								);
+								// Priting output
+								document.querySelectorAll(`.dpc__cost[data-index="${input.dataset.index}"]`).forEach(elem => elem.innerHTML = calculations.toFixed(2));
+								
+								// Storing Functions
+								if (hook == 'change') {
+									const toStore = [...quantityInputs].map(elem => {return {name: elem.name, index: elem.dataset.index, qty: elem.value};});
+									if (toStore) {
+										window.localStorage.setItem("dpc-" + tableID, JSON.stringify(toStore));
+									}
+								}
+								
+							});
+						});
+						
 					});
 					
 				}

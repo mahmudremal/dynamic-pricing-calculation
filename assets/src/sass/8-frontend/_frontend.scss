@@ -1,0 +1,75 @@
+
+
+.dpc {
+    &__table {
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+    &__caption {
+        gap: 10px;
+        color: #333;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 24px;
+        text-align: unset;
+        margin-bottom: 30px;
+        align-items: center;
+        // &__text {}
+        &__date {
+            font-weight: 600;
+        }
+    }
+    &__th {
+        &:not(:first-child) {
+            text-align: center;
+        }
+    }
+    &__th, &__td {
+        padding: 5px;
+        vertical-align: middle;
+        border: 1px solid #ddd;
+        @include mq($until: 550px) {
+            font-size: 14px;
+        }
+        &[data-column="title"] {
+            min-width: 40%;
+        }
+        // &[data-column="price"],
+        // &[data-column="tax"],
+        // &[data-column="unit"],
+        // &[data-column="cost"]
+        &:not(:first-child) {
+            width: 150px;
+            max-width: 20%;
+            font-size: 16px;
+            text-align: center;
+            @include mq($until: 900px) {
+                width: 120px;
+            }
+            @include mq($until: 600px) {
+                width: 100px;
+            }
+            @include mq($until: 300px) {
+                width: 75px;
+            }
+        }
+    }
+    &__trace {
+        .dashicons {
+            font-size: 22px;
+            color: #19ab19;
+            &.dashicons-arrow-down {
+                color: #f80b0b;
+            }
+        }
+    }
+    &__price,
+    &__cost {
+        position: relative;
+        &::before {
+            font-size: 18px;
+            content: attr(data-currency);
+        }
+    }
+    
+}

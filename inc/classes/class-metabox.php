@@ -19,12 +19,12 @@ class Metabox {
 	}
 	public function save_post($post_id) {
 		if (isset($_POST['prices']) && is_array($_POST['prices'])) {
-			update_post_meta($post_id, 'prices', sanitize_text_field($_POST['prices']));
+			update_post_meta($post_id, 'prices', $_POST['prices']);
 			update_post_meta($post_id, 'updated_on', date('M d, Y H:i:s'));
 		}
 	}
 	public function add_meta_boxes() {
-		$screens = ['post', 'page', 'book'];
+		$screens = ['pricestable'];
 		foreach ($screens as $screen) {
 			add_meta_box('prices', __('Calculation Prices', 'dpc'), [$this, 'meta_box_content'], $screen, 'normal', 'high');
 		}
@@ -33,11 +33,14 @@ class Metabox {
 		global $post;global $dpc_Calc;
 		$prices = get_post_meta($post->ID, 'prices', true);
         $units = $dpc_Calc->get_units();
+        $currencies = $dpc_Calc->get_currencies();
         $columns = [
             'title'     => __('Product title', 'dpc'),
             'unit'      => __('Unit', 'dpc'),
             'price'     => __('Price', 'dpc'),
-            'tax'       => __('Tax', 'dpc'),
+            // 'tax'    => __('Tax', 'dpc'),
+            'currency'  => __('Currency', 'dpc'),
+            'trash'     => __('Remove', 'dpc'),
         ];
 		?>
         <table class="dpc__table">
@@ -57,12 +60,18 @@ class Metabox {
                             <?php
                             switch ($key) {
                                 case 'unit':
+                                case 'currency':
                                     ?>
                                     <select name="prices[<?php echo esc_attr($index); ?>][<?php echo esc_attr($key); ?>]" class="dpc__select">
-                                        <?php foreach ($units as $value => $label) : ?>
+                                        <?php foreach (($key == 'unit')?$units:$currencies as $value => $label) : ?>
                                         <option value="<?php echo esc_attr($value); ?>" <?php echo esc_attr((isset($row[$key]) && $value == $row[$key])?'selected':''); ?>><?php echo esc_html($label); ?></option>
                                         <?php endforeach; ?>
                                     </select>
+                                    <?php
+                                    break;
+                                case 'trash':
+                                    ?>
+                                    <span class="dashicons dashicons-trash dpc__trash" area-hidden="true" data-content="Remove this row"></span>
                                     <?php
                                     break;
                                 default:
@@ -80,7 +89,7 @@ class Metabox {
             <tfoot class="dpc__tfoot">
                 <tr>
                     <td>
-                        <button type="button" class="dpc__tfoot_repeater" data-columns="<?php echo esc_attr(json_encode(array_keys($columns))); ?>" data-units="<?php echo esc_attr(json_encode($units)); ?>"><?php esc_html_e('Add new Row', 'dpc'); ?></button>
+                        <button type="button" class="dpc__tfoot__repeater" data-columns="<?php echo esc_attr(json_encode(array_keys($columns))); ?>" data-units="<?php echo esc_attr(json_encode($units)); ?>" data-currencies="<?php echo esc_attr(json_encode($currencies)); ?>"><?php esc_html_e('Add new Row', 'dpc'); ?></button>
                     </td>
                 </tr>
             </tfoot>

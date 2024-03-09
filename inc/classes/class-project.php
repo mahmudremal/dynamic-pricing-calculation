@@ -20,6 +20,8 @@ class Project {
 		// global $dpc_Option;$dpc_Option = Option::get_instance();
 		// global $dpc_Install;$dpc_Install = Install::get_instance();
 		global $dpc_Metabox;$dpc_Metabox = Metabox::get_instance();
+		global $dpc_Shortcode;$dpc_Shortcode = Shortcode::get_instance();
+		global $dpc_Post_Types;$dpc_Post_Types = Post_Types::get_instance();
 
 		// $this->setup_hooks();
 	}

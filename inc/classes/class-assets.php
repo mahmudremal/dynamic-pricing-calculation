@@ -64,11 +64,8 @@ class Assets {
 			'buildPath'  		=> DPC_BUILD_URI,
 			'audioDuration'  	=> DPC_AUDIO_DURATION,
 			'siteLogo'			=> apply_filters('ctto/project/system/getoption', 'standard-sitelogo', false),
-			'i18n'					=> [
-				'pls_wait'			=> __('Please wait...', 'ctto'),
-			],
-			'local'				=> apply_filters('ctto/project/system/get_locale', get_user_locale())
-			
+			'i18n'				=> ['pls_wait' => __('Please wait...', 'ctto')],
+			'local'				=> apply_filters('ctto/project/system/get_locale', get_user_locale()),
 		], (array) $args);
 		
 		if ($is_admin) {
