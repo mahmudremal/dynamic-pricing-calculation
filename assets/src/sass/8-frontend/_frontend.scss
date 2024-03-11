@@ -10,13 +10,14 @@
         color: #333;
         display: flex;
         flex-wrap: wrap;
-        font-size: 24px;
+        font-size: 15px;
         text-align: unset;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         align-items: center;
         // &__text {}
         &__date {
-            font-weight: 600;
+            font-weight: 900;
+            text-transform: capitalize;
         }
     }
     &__th {
@@ -26,6 +27,7 @@
     }
     &__th, &__td {
         padding: 5px;
+        text-align: center;
         vertical-align: middle;
         border: 1px solid #ddd;
         @include mq($until: 550px) {
@@ -33,6 +35,7 @@
         }
         &[data-column="title"] {
             min-width: 40%;
+            font-size: 16px;
         }
         // &[data-column="price"],
         // &[data-column="tax"],
@@ -55,13 +58,25 @@
         }
     }
     &__trace {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
         .dashicons {
-            font-size: 22px;
+            display: flex;
+            margin: unset;
+            padding: unset;
+            max-width: 15px;
+            font-size: 26px;
             color: #19ab19;
+            align-items: center;
+            justify-content: center;
             &.dashicons-arrow-down {
                 color: #f80b0b;
             }
         }
+    }
+    &__price {
+        width: calc(100% - 15px);
     }
     &__price,
     &__cost {

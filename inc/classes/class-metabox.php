@@ -88,7 +88,7 @@ class Metabox {
             </tbody>
             <tfoot class="dpc__tfoot">
                 <tr>
-                    <td>
+                    <td colspan="3">
                         <button type="button" class="dpc__tfoot__repeater" data-columns="<?php echo esc_attr(json_encode(array_keys($columns))); ?>" data-units="<?php echo esc_attr(json_encode($units)); ?>" data-currencies="<?php echo esc_attr(json_encode($currencies)); ?>"><?php esc_html_e('Add new Row', 'dpc'); ?></button>
                     </td>
                 </tr>

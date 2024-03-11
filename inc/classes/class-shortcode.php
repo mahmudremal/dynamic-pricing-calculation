@@ -89,14 +89,23 @@ class Shortcode {
 														?>
 														<span class="dpc__trace" data-index="<?php echo esc_attr($index); ?>">
 															<span class="dashicons dashicons-arrow-<?php echo esc_attr($is_reducing?'down':'up'); ?>"></span>
-														</span>
 														<?php
 													endif;
 													?>
 													<span class="dpc__<?php echo esc_attr($key); ?>" data-index="<?php echo esc_attr($index); ?>" data-currency="<?php echo esc_attr($dpc_Calc->get_currency_sign($row['currency'])); ?>">
-														<?php echo esc_html(isset($row[$key])?$row[$key]:0.00); ?>
+														<?php echo esc_html(
+															isset($row[$key])?(
+																($key == 'price')?sprintf(
+																	isset($row['per_unit'])?$row['per_unit']:'%s per %s', $row[$key], $row['unit']):$row[$key]
+															):0.00
+														); ?>
 													</span>
 													<?php
+													if ($key == 'price') :
+														?>
+														</span>
+													<?php
+													endif;
 													break;
 											}
 											?>
